@@ -15,6 +15,12 @@ let timerId = null;
 btnStart.setAttribute('disabled', 'true');
 
 const options = {
+  cssAnimationStyle: 'zoom',
+  position: 'center-center',
+  closeButton: true,
+   timeout: 4000,
+  fontSize: '25px',
+  width: '500px',
     enableTime: true,
     time_24hr: true,
     defaultDate: new Date(),
@@ -22,7 +28,7 @@ const options = {
     onClose(selectedDates) {
         const date = new Date();
     if (selectedDates[0] <= date) {
-      Notify.failure('Please choose a date in the future');
+      Notify.failure('Please choose a date in the future', options);
     } else {
       btnStart.removeAttribute('disabled');
       selectedDate = selectedDates;
